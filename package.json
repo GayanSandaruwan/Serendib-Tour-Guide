@@ -1,0 +1,18 @@
+{
+  "name": "stb",
+  "version": "1.0.0",
+  "description": "Serendib Tour Guide",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gayan Sandaruwan De Silva",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^1.0.2",
+    "body-parser": "^1.17.2",
+    "jsonwebtoken": "^7.4.0",
+    "mongoose": "^4.11.4",
+    "random-key": "^0.3.2"
+  }
+}
