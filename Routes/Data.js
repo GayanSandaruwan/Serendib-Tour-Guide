@@ -19,10 +19,10 @@ let Place = require('../Models/Place');
 let request = require('request');
 
 
-router.route('/cars/list')                                           //Verify Driver against sent key to the mail
+router.route('/cars/list')                                           //Get The Cars Availble In the System
     .get(function(req, res) {
         let email = req.body.email;
-                                   //body parser lets us use the req.body
+                                                                    //body parser lets us use the req.body
         console.log(req.body);
         Car.find(function (err, cars) {
             if (err) return handleError(err);
@@ -47,6 +47,7 @@ router.route('/cars/register')
 		car.Reg_no = req.body.Reg_no;
 		car.Manu_fac = req.body.Manu_fac;
         console.log("Inside Function");
+
         car.save(function(err) {
             if (err) {
                 res.send({message : "Car Already Exist under system"});
@@ -82,21 +83,26 @@ router.route('/resturant/register')
 		resturant.Name = req.body.Name;
 		resturant.Owner = req.body.Owner;
 		resturant.Location = req.body.Location;
-		resturant.Reg_no = req.body.Reg_no;
+		//resturant.Reg_no = req.body.Reg_no;
 
-		resturant.save(function(err){
-			if(err) {
-				res.send({message : "Resturant Already exist under system"});
-				console.log(err);
-			}else {
-				res.json({
-					message : "Resturant successfully added!",
-					resturant : resturant
-				});
-				console.log(resturant.Reg_no + "Saved Successfully!");
-			}
-		});
+		Resturant.find().count(function(err, resturantCount){
+            
+            resturant.Id = resturantCount + 1; 
 
+            resturant.save(function(err){
+            if(err) {
+                res.send({message : "Resturant Already exist under system"});
+                console.log(err);
+            }else {
+                res.json({
+                    message : "Resturant successfully added!",
+                    resturant : resturant
+                });
+                console.log(resturant.Reg_no + "Saved Successfully!");
+            }
+        });
+
+        });
 	});
 
 router.route('/guide/list')
@@ -117,7 +123,7 @@ router.route('/guide/register')
         guide.Cost = req.body.Cost;
         guide.Name = req.body.Name;
         guide.age = req.body.Age;
-        guide.Reg_no = req.body.Reg_no;
+        guide.NIC = req.body.NIC;
 
         guide.save(function(err){
             if(err) {
@@ -152,21 +158,25 @@ router.route('/place/register')
         place.Name = req.body.Name;
         place.Lat = req.body.Lat;
         place.Lang = req.body.Lang;
-        place.Reg_no = req.body.Reg_no;
+        //place.Reg_no = req.body.Reg_no;
 
-        place.save(function(err){
-            if(err) {
-                res.send({message : "Place Already exist under system"});
-                console.log(err);
-            }else {
-                res.json({
-                    message : "Place successfully added!",
-                    place : place
-                });
-                console.log(place.Reg_no + "Saved Successfully!");
-            }
+        Place.find().count(function(err, placeCount){
+
+            place.Id = placeCount + 1;
+            place.save(function(err){
+                if(err) {
+                    res.send({message : "Place Already exist under system"});
+                    console.log(err);
+                }else {
+                    res.json({
+                        message : "Place successfully added!",
+                        place : place
+                    });
+                    console.log(place.Reg_no + "Saved Successfully!");
+                }
+            });
+
         });
-
     });
 
 router.route('/place/distances')

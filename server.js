@@ -7,6 +7,7 @@ let mongoose = require('mongoose');
 let bodyParser = require('body-parser');
 let user = require('./Routes/User');
 let data = require('./Routes/Data');
+let reserve = require('./Routes/Reserve');
 
 // create reusable transporter object using the default SMTP transport
 //and create our instances
@@ -40,8 +41,7 @@ app.use(function(req, res, next) {
     res.setHeader('Access-Control-Allow-Credentials', 'true');
     res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT,DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers');
-
-//and remove cacheing so we get the most recent comments
+    //and remove cacheing so we get the most recent comments
     res.setHeader('Cache-Control', 'no-cache');
     next();
 });
@@ -58,6 +58,7 @@ router.get('/trail', function(req, res) {
 //Use our router configuration when we call /api
 app.use('/User', user);
 app.use('/Data', data);
+app.use('/Reserve', reserve);
 
 //starts the server and listens for requests
 app.listen(port, function() {

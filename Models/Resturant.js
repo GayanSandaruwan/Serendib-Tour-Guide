@@ -6,7 +6,7 @@ var resturantSchema = new mongoose.Schema(
 	Owner:String,
 	Name: String,
 	Location: String,
-	Reg_no: {type : String, index:{unique : true}},
+	Id: {type : String, index:{unique : true}},
 }
 	);
 
