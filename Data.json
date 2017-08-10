@@ -1,0 +1,73 @@
+--User
+
+http://localhost:3001/user/register
+
+{
+"first_name" : "gayan Sandaruwan",
+"last_name": "De Silva",
+"NIC": "950180331v",
+"email" : "gayankavirathne.14@cse.mrt.ac.lk"
+}
+
+Password For User Automatically Generate and sent to the Mail : 'PTgbdk'
+
+--Restuarants
+
+http://localhost:3001/data/resturant/register
+{
+"Cost" : "5000",
+"Name" : "Goda Yata",
+"Owner" :  "Gayan S De Silva",
+"Location" : "Moratuwa Uni"
+}
+
+{
+"Cost" : "5000",
+"Name" : "Galadari",
+"Owner" :  "Gayan S De Silva",
+"Location" : "Colombo 07"
+}
+
+{
+"Cost" : "5000",
+"Name" : "Shangrilla",
+"Owner" :  "Gayan S De Silva",
+"Location" : "Cinnamon Garden"
+}
+
+
+--Place
+
+http://localhost:3001/data/place/register
+
+{
+"Name": "Colombo",
+"Lat" : "6.9271",
+"Lang" : "79.8612"
+}
+
+
+{
+"Name": "Horana",
+"Lat" : "6.7230",
+"Lang" : "80.0647"
+}
+
+{
+"Name": "Kirullapone",
+"Lat" : "6.8817",
+"Lang" : "79.8787"
+}
+
+{
+"Name": "Anuradhapura",
+"Lat" : "8.3114",
+"Lang" : "80.4037"
+}
+
+
+
+
+
+
+
