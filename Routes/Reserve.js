@@ -12,10 +12,10 @@ let jwt = require('jsonwebtoken');
 let config = require('./config');
 let Reservation = require('../Models/Reservation');
 
-router.route('/cars')                                           //Get The Reservations Availbel For Cars
+router.route('/cab')                                           //Get The Reservations Availbel For Cars
     .get(function(req, res) {
              console.log("getting Car Reservations");                                                   //body parser lets us use the req.body
-        Reservation.find({Object_type : "CAR"}, function (err, cars) {
+        Reservation.find({Object_type : "CAB"}, function (err, cars) {
             if (err) return handleError(err);
             if (!cars.length)
                 res.json({message: false});
@@ -27,6 +27,8 @@ router.route('/cars')                                           //Get The Reserv
 
   
       //Reserve New Car
+router.route('/cab')                                           //Get The Reservations Availbel For Cars
+
     .post(function(req, res) {
         let reservation = new Reservation();
         console.log(req.body);
@@ -38,7 +40,7 @@ router.route('/cars')                                           //Get The Reserv
 		reservation.User_Id =     req.body.User_Id;
         reservation.Object_Id=    req.body.Object_Id;
         // reservation.Id=           req.body.Id;                                     
-        reservation.Object_type=  "CAR";
+        reservation.Object_type=  "CAB";
 
         console.log("Reserving Car");
         Reservation.find().count(function(err, reservationsCount){
@@ -62,7 +64,7 @@ router.route('/cars')                                           //Get The Reserv
     });
 
 
-router.route('/resturants')                                           //Get The Reservations Availbel For Cars
+router.route('/rest')                                           //Get The Reservations Availbel For Cars
     .get(function(req, res) {
              console.log("getting Car Reservations");                                                   //body parser lets us use the req.body
         Reservation.find({Object_type : "REST"}, function (err, resturants) {
@@ -111,7 +113,7 @@ router.route('/resturants')                                           //Get The 
        
     });
 
-    router.route('/guides')                                           //Get The Reservations Availbel For Cars
+    router.route('/guide')                                           //Get The Reservations Availbel For Cars
     .get(function(req, res) {
              console.log("getting Guides Reservations");                                                   //body parser lets us use the req.body
         Reservation.find({Object_type : "GUIDE"}, function (err, guides) {

@@ -158,11 +158,11 @@ router.route('/place/register')
         place.Name = req.body.Name;
         place.Lat = req.body.Lat;
         place.Lang = req.body.Lang;
-        //place.Reg_no = req.body.Reg_no;
 
         Place.find().count(function(err, placeCount){
 
             place.Id = placeCount + 1;
+            console.log(place.Id);
             place.save(function(err){
                 if(err) {
                     res.send({message : "Place Already exist under system"});
@@ -172,7 +172,7 @@ router.route('/place/register')
                         message : "Place successfully added!",
                         place : place
                     });
-                    console.log(place.Reg_no + "Saved Successfully!");
+                    console.log(place.Id + "Saved Successfully!");
                 }
             });
 
@@ -186,30 +186,45 @@ router.route('/place/distances')
             let destinations = "";
              places.forEach(function(place){
                 console.log("Place"+place);
-                destinations = place.Lat + ',' + place.Lang +"|"
+                destinations = destinations+ place.Lat + ',' + place.Lang +"|"
              });
 
+             console.log(req.body.lat);
+            console.log("Locations   :" + destinations);
+            request.post(
+                'https://maps.googleapis.com/maps/api/distancematrix/json?'
+                + 'units=metric&'
+                +'origins='+req.body.lat+','+req.body.lang+'&'
+                +'destinations=' + destinations+ '&'
+                +'key=AIzaSyCJCbqL1QSUwG7fSB2wGfEIu-w6vWltZ_8',
+                
+                function (error, response, body) {
+                    if (!error && response.statusCode == 200) {
 
-                    console.log("Locations   :" + destinations);
-                    request.post(
-                        'https://maps.googleapis.com/maps/api/distancematrix/json?'
-                        + 'units=metric&'
-                        +'origins='+req.body.lat+','+req.body.lang+'&'
-                        +'destinations=' + "6.8,79.99|6.8,79.99|" + '&'
-                        +'key=AIzaSyCJCbqL1QSUwG7fSB2wGfEIu-w6vWltZ_8',
-                        
-                        function (error, response, body) {
-                            if (!error && response.statusCode == 200) {
-                                let jsonBody = JSON.parse(body);
-                                console.log(jsonBody);
-                                res.send(jsonBody);
-                               // console.log(jsonBody.rows[0]);
-                            }
-                            else{
-                                res.json({message : false});
-                            }
-                        }
-                    );
+                        let jsonBody = JSON.parse(body);
+                        console.log(jsonBody.rows[0].elements);
+
+                        let i =0;
+                        let Locations =[];
+                        places.forEach(function(place){
+                            let element = {lat : place.Lat, lang : place.Lang,
+                                           name: place.Name, 
+                                           distance : jsonBody.rows[0].elements[i].distance.text,
+                                           time : jsonBody.rows[0].elements[i].duration.text,
+                                             } 
+                            Locations.push(element);
+                            i++;
+                        });
+                        console.log(Locations);
+                        res.send(Locations);
+                        // console.log(jsonBody.rows[0].elements);
+
+                    }
+                    else{
+                        res.json({message : false});
+                    }
+                }
+            );
 
         });
         
