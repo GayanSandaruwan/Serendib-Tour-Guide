@@ -6,6 +6,7 @@ var guideSchema = new mongoose.Schema(
 	Age:Number,
 	Name: String,
 	NIC: {type : String, index:{unique : true}},
+	Image: String,
 }
 	);
 

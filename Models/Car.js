@@ -7,6 +7,7 @@ var carSchema = new mongoose.Schema(
 	Model: String,
 	Reg_no: {type : String, index:{unique : true}},
 	Manu_fac : String,
+	Image: String,
 
 }
 	);

@@ -29,7 +29,7 @@ router.route('/cars/list')                                           //Get The C
             if (!cars.length)
                 res.json({message: false});
             else
-                res.json({message: true, cars});
+                res.json({message: true, cars : cars});
 
         });
     });
@@ -46,6 +46,7 @@ router.route('/cars/register')
 		car.Model = req.body.Model;
 		car.Reg_no = req.body.Reg_no;
 		car.Manu_fac = req.body.Manu_fac;
+        car.Image = req.body.Image;
         console.log("Inside Function");
 
         car.save(function(err) {
@@ -80,9 +81,11 @@ router.route('/resturant/register')
 		let resturant = new Resturant();
 
 		resturant.Cost = req.body.Cost;
-		resturant.Name = req.body.Name;
+        resturant.Name = req.body.Name;
 		resturant.Owner = req.body.Owner;
 		resturant.Location = req.body.Location;
+        resturant.Image = req.body.Image;
+
 		//resturant.Reg_no = req.body.Reg_no;
 
 		Resturant.find().count(function(err, resturantCount){
@@ -124,6 +127,7 @@ router.route('/guide/register')
         guide.Name = req.body.Name;
         guide.age = req.body.Age;
         guide.NIC = req.body.NIC;
+        guide.Image = req.body.Image;
 
         guide.save(function(err){
             if(err) {
@@ -154,7 +158,7 @@ router.route('/place/list')
 router.route('/place/register')
     .post(function(req,res){
         let place = new Place();
-
+        
         place.Name = req.body.Name;
         place.Lat = req.body.Lat;
         place.Lang = req.body.Lang;
