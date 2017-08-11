@@ -48,26 +48,30 @@ http://localhost:3001/data/place/register
 {
 "Name": "Colombo",
 "Lat" : "6.9271",
-"Lang" : "79.8612"
+"Lang" : "79.8612",
+"Image" : "https://6619c32c0ff44ab02d03-ad4ce04f947c8d232ab56dcc0713b863.ssl.cf6.rackcdn.com/ACBT_ACBT-Colombo-image3.jpg"
 }
 
 
 {
 "Name": "Horana",
 "Lat" : "6.7230",
-"Lang" : "80.0647"
+"Lang" : "80.0647",
+"Image" : "http://farm8.static.flickr.com/7165/6801005393_af7b2e69c2.jpg"
 }
 
 {
 "Name": "Kirullapone",
 "Lat" : "6.8817",
-"Lang" : "79.8787"
+"Lang" : "79.8787",
+"Image" : "https://i.ytimg.com/vi/4o1TFIIciAg/maxresdefault.jpg"
 }
 
 {
 "Name": "Anuradhapura",
 "Lat" : "8.3114",
-"Lang" : "80.4037"
+"Lang" : "80.4037",
+"Image" : "https://cache-graphicslib.viator.com/graphicslib/thumbs360x240/8021/SITours/the-last-kingdom-private-day-tour-in-kandy-in-colombo-186551.jpg"
 }
 
 
@@ -93,6 +97,10 @@ http://localhost:3001/data/cars/register
 "Image" : "https://s-media-cache-ak0.pinimg.com/originals/22/78/be/2278befc79c58ef27014a5f4156cccb2.jpg"
 }
 
+
+--Guides
+http://localhost:3001/data/guide/register
+
 {
 "Cost": "7500",
 "Owner": "Gayan",
@@ -102,9 +110,30 @@ http://localhost:3001/data/cars/register
 "Image" : "http://auto.ferrari.com/en_US/wp-content/uploads/sites/7/2016/09/ferrari-laferrari-aperta-2016-gallery-prew-1-tr.jpg"
 }
 
+{
+
+"Cost" : "4500 ",
+"Age" : " 48",
+"Name" : " Amir",
+"NIC" : " 952455654v",
+"Image" : "http://media1.santabanta.com/full1/Indian Celebrities(M)/Aamir Khan/aamir-khan-12a.jpg"
+}
 
 
 
 
 
 
+
+
+
+
+
+
+ <View style ={styles.item ,tileStyle.sizesWrap}>
+                 <TouchableHighlight onPress={()=> this.loadComponent("WHET")}>
+                    <Image source={{uri: 'https://facebook.github.io/react/img/logo_og.png'}} style={styles.item ,tileStyle.sizesIcon } />
+                 </TouchableHighlight>
+                 <Text style={styles.itemText}>
+                     Wheather
+                </Text>

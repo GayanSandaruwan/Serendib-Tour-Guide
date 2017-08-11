@@ -6,6 +6,7 @@ var placeSchema = new mongoose.Schema(
 	Lat: Number,
 	Lang: Number,
 	Id: {type : Number, index:{unique : true}},
+	Image : String,
 }
 	);
 
