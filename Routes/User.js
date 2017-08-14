@@ -7,7 +7,6 @@ let express = require('express');
 let mongoose = require('mongoose');
 let bodyParser = require('body-parser');
 let router = express.Router();
-let passControl =  require('./passwords');
 mongoose.Promise = require('bluebird');
 let jwt = require('jsonwebtoken');
 let config = require('./config');

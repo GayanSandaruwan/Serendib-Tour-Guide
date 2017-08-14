@@ -9,7 +9,6 @@ let mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 let bodyParser = require('body-parser');
 let router = express.Router();
-let passControl =  require('./passwords');
 let jwt = require('jsonwebtoken');
 let config = require('./config');
 let Car = require('../Models/Car');
