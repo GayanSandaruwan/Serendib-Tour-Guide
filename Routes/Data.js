@@ -163,7 +163,7 @@ router.route('/place/register')
         place.Lat = req.body.Lat;
         place.Lang = req.body.Lang;
         place.Image = req.body.Lang;
-
+        
         Place.find().count(function(err, placeCount){
 
             place.Id = placeCount + 1;
