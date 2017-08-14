@@ -163,6 +163,22 @@ router.route('/rest')                                           //Get The Reserv
     });
 
 
+    router.route('/user')                                           //Get The Reservations Availbel For Cars
+    .post(function(req, res) {
+             console.log("getting Car Reservations");  
+
+            let  User_Id = req.body.User_Id;                                                //body parser lets us use the req.body
+        Reservation.find({User_Id : User_Id}, function (err, cars) {
+            if (err) return handleError(err);
+            if (!cars.length)
+                res.json({message: false});
+            else
+                res.json({message: true, cars});
+
+        });
+    });
+
+
 module.exports = router;
 
 

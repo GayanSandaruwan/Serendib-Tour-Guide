@@ -7,7 +7,7 @@ var reservSchema = new mongoose.Schema(
 	Success: Boolean,
 	Time_start: Date,
 	Time_end: Date,
-	User_Id : Number,
+	User_Id : String,
 	Object_Id : Number,
 	Object_type : String,
 

@@ -15,10 +15,10 @@ exports.sendMail = function(key,email){
 
 
     let mailOptions = {
-        from: '"Travel Around 👻" <gayankavirathne@gmail.com>', // sender address
+        from: '"Serendib Travel Guide 👻" <gayankavirathne@gmail.com>', // sender address
         to: email, // list of receivers
-        subject: 'Hello ✔ Welcome To Travel Around Public transport TRacking System', // Subject line
-        text: 'You Are Registered as a Driver Under Travel Around Transport Tracking System', // plain text body
+        subject: 'Hello ✔ Welcome To Serendib Travel Guide', // Subject line
+        text: 'You Are Registered as a User Under Serendib Travel Guide System', // plain text body
         html: '<b>Your Key is shown below. Open Your Application and Enter the key </b>' + key // html body
     };
 // send mail with defined transport object
