@@ -10,9 +10,8 @@ var reservSchema = new mongoose.Schema(
 	User_Id : String,
 	Object_Id : Number,
 	Object_type : String,
-
 }
 	);
- reservSchema.index({Time_start : 1, Time_end : 1, Object_Id : 1, Object_type :1}, {unique:true});
+reservSchema.index({Time_start : 1, Time_end : 1, Object_Id : 1, Object_type :1}, {unique:true});
 
 module.exports = mongoose.model('Reservation', reservSchema);

@@ -14,6 +14,7 @@ Password For User Automatically Generate and sent to the Mail : 'PTgbdk'
 --Restuarants
 
 http://localhost:3001/data/resturant/register
+
 {
 "Cost" : "5000",
 "Name" : "Goda Yata",
@@ -37,7 +38,6 @@ http://localhost:3001/data/resturant/register
 "Location" : "Cinnamon Garden",
 "Image" : "http://www.hong-kong-hotels-network.com/images/com_jea/images/16/6123_14563030.jpg"
 }
-
 
 
 

@@ -33,8 +33,8 @@ router.route('/register')
         let success = mailer.sendMail(user.key,user.email);
         console.log("Inside Function");
         user.save(function(err) {
-            if (err) {
-                res.send({message : "User Already Exist under that Mail Or NIC Number is used!"});
+            if (err || !success) {
+                res.send({message : false});
                 console.log(err);
             }
             else {
