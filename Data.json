@@ -127,13 +127,49 @@ http://localhost:3001/data/guide/register
 
 
 
+Old Icon Set 
 
 
-
- <View style ={styles.item ,tileStyle.sizesWrap}>
-                 <TouchableHighlight onPress={()=> this.loadComponent("WHET")}>
-                    <Image source={{uri: 'https://facebook.github.io/react/img/logo_og.png'}} style={styles.item ,tileStyle.sizesIcon } />
+          <View style={styles.container}>
+            <View style ={styles.item ,tileStyle.sizesWrap}>
+                 <TouchableHighlight onPress={()=> this.loadComponent("REST")}>
+                    <Image source={{uri: 'http://images.clipartpanda.com/restaurant-clipart-restaurant-building-clipart-great.jpg'}} style={styles.item ,tileStyle.sizesIcon } />
                  </TouchableHighlight>
                  <Text style={styles.itemText}>
-                     Wheather
+                      Resturant
+                 </Text>
+            </View>
+            <View style ={styles.item ,tileStyle.sizesWrap}>
+                 <TouchableHighlight onPress={()=> this.loadComponent("CAB")}>
+                    <Image source={{uri: 'https://previews.123rf.com/images/mycartoonartist/mycartoonartist1106/mycartoonartist110600003/9699028-Taxicab-Driver-waving-Stock-Vector-cabbie-taxicab-cab.jpg'}} style={styles.item ,tileStyle.sizesIcon } />
+                 </TouchableHighlight>
+                 <Text style={styles.itemText}>
+                      Grab A Cab
+                 </Text>
+            </View>
+            <View style ={styles.item ,tileStyle.sizesWrap}>
+                 <TouchableHighlight onPress={()=> this.loadComponent("GUIDE")}>
+                    <Image source={{uri: 'https://comps.canstockphoto.com/can-stock-photo_csp22421656.jpg'}} style={styles.item ,tileStyle.sizesIcon } />
+                 </TouchableHighlight>
+                 <Text style={styles.itemText}>
+                   Your Guide
                 </Text>
+            </View>
+            <View style ={styles.item ,tileStyle.sizesWrap}>
+                 <TouchableHighlight onPress={()=> this.loadComponent("TRIPS")}>
+                    <Image source={{uri: 'http://hddfhm.com/images/road-trip-clipart-13.jpg'}} style={styles.item ,tileStyle.sizesIcon } />
+                 </TouchableHighlight>
+                 <Text style={styles.itemText}>
+                       Day trips
+                  </Text>
+            </View>
+            <View style ={styles.item ,tileStyle.sizesWrap}>
+                 <TouchableHighlight onPress={()=> this.loadComponent("PLACE")}>
+                    <Image source={{uri: 'http://clipartix.com/wp-content/uploads/2016/06/Garden-clip-art-pictures-free-clipart-images-2.jpg'}} style={styles.item ,tileStyle.sizesIcon } />
+                 </TouchableHighlight>
+                 <Text style={styles.itemText}>
+                     Places To Visit
+                </Text>
+            </View>
+
+          </View>
